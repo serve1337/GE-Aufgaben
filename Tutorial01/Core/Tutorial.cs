@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Fusee.Base.Common;
 using Fusee.Base.Core;
 using Fusee.Engine.Common;
@@ -13,7 +14,7 @@ namespace Fusee.Tutorial.Core
     [FuseeApplication(Name = "Tutorial Example", Description = "The official FUSEE Tutorial.")]
     public class Tutorial : RenderCanvas
     {
-        private Mesh _mesh;
+        private Mesh _mesh, _newMesh;
         private const string _vertexShader = @"
 		 attribute vec3 fuVertex;
 
@@ -22,16 +23,27 @@ namespace Fusee.Tutorial.Core
             gl_Position = vec4(fuVertex, 1.0);
         }";
 
-        private const string _pixelShader = @"
+        private const string _pixelShader1 = @"
 		#ifdef GL_ES
 			precision highp float;
 		#endif
 
 		void main()
 		{
-			gl_FragColor = vec4(1, 0, 1, 1);
+			gl_FragColor = vec4(0, 0, 1, 1);
 		}";
 
+        private const string _pixelShader2 = @"
+		#ifdef GL_ES
+			precision highp float;
+		#endif
+
+		void main()
+		{
+			gl_FragColor = vec4(1, 0, 0, 1);
+		}";
+
+        private List<ShaderProgram> _shaderAr = new List<ShaderProgram>();
 
         // Init is called on startup. 
         public override void Init()
@@ -40,20 +52,32 @@ namespace Fusee.Tutorial.Core
             // Set the clear color for the backbuffer to light green.
             RC.ClearColor = new float4(0.1f, 1, 0.7f, 1);
 
+            _shaderAr.Add(RC.CreateShader(_vertexShader, _pixelShader1));
+            _shaderAr.Add(RC.CreateShader(_vertexShader, _pixelShader2));
+
             _mesh = new Mesh
             {
                 Vertices = new[]
                 {
                     new float3(-0.75f, -0.75f, 0),
                     new float3(0.75f, -0.75f, 0),
-                    new float3(0, 0.75f, 0),
+                    new float3(0.75f, 0.75f, 0),
+                    new float3(-1, 1, 0),
                 },
-                Triangles = new ushort[] { 0, 1, 2 },
+                Triangles = new ushort[] {  0, 1, 2, 3, 0, 2 },
             };
 
-            var shader = RC.CreateShader(_vertexShader, _pixelShader);
-            RC.SetShader(shader);
-
+            _newMesh = new Mesh
+            {
+                Vertices = new[]
+                {
+                    new float3(-1f, -1f, 0),
+                    new float3(0.75f, -0.75f, 0),
+                    new float3(0.75f, 0.75f, 0),
+                    new float3(-0.75f, 0.75f, 0),
+                },
+                Triangles = new ushort[] { 0, 1, 2, 3, 0, 2 },
+            };
         }
 
         // RenderAFrame is called once a frame
@@ -64,6 +88,9 @@ namespace Fusee.Tutorial.Core
             // Clear the backbuffer
             RC.Clear(ClearFlags.Color | ClearFlags.Depth);
 
+            RC.SetShader(_shaderAr[1]);
+            RC.Render(_newMesh);
+            RC.SetShader(_shaderAr[0]);
             RC.Render(_mesh);
 
             // Swap buffers: Show the contents of the backbuffer (containing the currently rerndered farame) on the front buffer.
