@@ -28,16 +28,43 @@ JSIL.DeclareNamespace("Fusee.Tutorial.Core");
     return ($T05 = JSIL.Memoize($asm04.Fusee.Engine.Core.RenderContext)) ();
   };
   var $T06 = function () {
-    return ($T06 = JSIL.Memoize($asm06.Fusee.Math.Core.float4)) ();
+    return ($T06 = JSIL.Memoize($asm06.Fusee.Math.Core.float2)) ();
   };
   var $T07 = function () {
-    return ($T07 = JSIL.Memoize($asm03.Fusee.Engine.Common.ClearFlags)) ();
+    return ($T07 = JSIL.Memoize($asm06.Fusee.Math.Core.float4)) ();
   };
   var $T08 = function () {
-    return ($T08 = JSIL.Memoize($asm0D.System.Single)) ();
+    return ($T08 = JSIL.Memoize($asm0D.System.Random)) ();
   };
   var $T09 = function () {
-    return ($T09 = JSIL.Memoize($asm06.Fusee.Math.Core.float4x4)) ();
+    return ($T09 = JSIL.Memoize(System.Array.Of($asm0D.System.Byte))) ();
+  };
+  var $T0A = function () {
+    return ($T0A = JSIL.Memoize($asm0D.System.Byte)) ();
+  };
+  var $T0B = function () {
+    return ($T0B = JSIL.Memoize($asm0D.System.BitConverter)) ();
+  };
+  var $T0C = function () {
+    return ($T0C = JSIL.Memoize($asm0D.System.Boolean)) ();
+  };
+  var $T0D = function () {
+    return ($T0D = JSIL.Memoize($asm04.Fusee.Engine.Core.MouseDevice)) ();
+  };
+  var $T0E = function () {
+    return ($T0E = JSIL.Memoize($asm04.Fusee.Engine.Core.Input)) ();
+  };
+  var $T0F = function () {
+    return ($T0F = JSIL.Memoize($asm04.Fusee.Engine.Core.KeyboardDevice)) ();
+  };
+  var $T10 = function () {
+    return ($T10 = JSIL.Memoize($asm0D.System.Single)) ();
+  };
+  var $T11 = function () {
+    return ($T11 = JSIL.Memoize($asm03.Fusee.Engine.Common.ClearFlags)) ();
+  };
+  var $T12 = function () {
+    return ($T12 = JSIL.Memoize($asm06.Fusee.Math.Core.float4x4)) ();
   };
   var $S00 = function () {
     return ($S00 = JSIL.Memoize(new JSIL.ConstructorSignature($asm06.TypeRef("Fusee.Math.Core.float3"), [
@@ -46,7 +73,10 @@ JSIL.DeclareNamespace("Fusee.Tutorial.Core");
       ]))) ();
   };
   var $S01 = function () {
-    return ($S01 = JSIL.Memoize(new JSIL.ConstructorSignature($asm06.TypeRef("Fusee.Math.Core.float4"), [
+    return ($S01 = JSIL.Memoize(new JSIL.ConstructorSignature($asm06.TypeRef("Fusee.Math.Core.float2"), [$asm0D.TypeRef("System.Single"), $asm0D.TypeRef("System.Single")]))) ();
+  };
+  var $S02 = function () {
+    return ($S02 = JSIL.Memoize(new JSIL.ConstructorSignature($asm06.TypeRef("Fusee.Math.Core.float4"), [
         $asm0D.TypeRef("System.Single"), $asm0D.TypeRef("System.Single"), 
         $asm0D.TypeRef("System.Single"), $asm0D.TypeRef("System.Single")
       ]))) ();
@@ -59,24 +89,50 @@ JSIL.DeclareNamespace("Fusee.Tutorial.Core");
 
   function Tutorial_Init () {
     var mesh = new ($T01())();
-    mesh.set_Vertices(JSIL.Array.New($T02(), [$S00().Construct(-0.8165, -0.3333, -0.4714), $S00().Construct(0.8165, -0.3333, -0.4714), $S00().Construct(0, -0.3333, 0.9428), $S00().Construct(0, 1, 0)]));
-    mesh.set_Triangles(JSIL.Array.New($T03(), [0, 2, 1, 0, 1, 3, 1, 2, 3, 2, 0, 3]));
+    mesh.set_Vertices(JSIL.Array.New($T02(), [$S00().Construct(-0.5, -0.75, -1), $S00().Construct(0.5, -0.75, -1), $S00().Construct(-0.5, 0, -1), $S00().Construct(0.5, 0, -1), $S00().Construct(0.5, 0, 0), $S00().Construct(-0.5, 0, 0), $S00().Construct(0.5, -0.75, 0), $S00().Construct(-0.5, -0.75, 0), $S00().Construct(0, 0.5, -0.5)]));
+    mesh.set_Triangles(JSIL.Array.New($T03(), [0, 1, 3, 3, 2, 0, 1, 6, 4, 4, 3, 1, 6, 7, 5, 5, 4, 6, 7, 0, 2, 2, 5, 7, 7, 6, 1, 1, 0, 7, 2, 3, 8, 3, 4, 8, 4, 5, 8, 5, 2, 8]));
     this._mesh = mesh;
-    var shader = (this.RenderCanvas$RC$value).CreateShader("\r\n        attribute vec3 fuVertex;\r\n        uniform float alpha;\r\n\r\n        void main()\r\n        {\r\n            float s = sin(alpha);\r\n            float c = cos(alpha);\r\n            gl_Position = vec4( fuVertex.x * c - fuVertex.y * s,   // The transformed x coordinate\r\n                                fuVertex.x * s + fuVertex.y * c,   // The transformed y coordinate\r\n                                fuVertex.z * s + fuVertex.z * c,   // z is unchanged\r\n                                1.0);\r\n        }", "\r\n            #ifdef GL_ES\r\n                precision highp float;\r\n            #endif\r\n            uniform float4 color;\r\n\r\n            void main()\r\n            {\r\n                gl_FragColor = vec4(color.x, color.y, color.z, color.w);\r\n            }");
+    var shader = (this.RenderCanvas$RC$value).CreateShader("\r\n            attribute vec3 fuVertex;\r\n            uniform float alpha, yRotation;\r\n            varying vec3 modelpos;\r\n            varying mat4 yRot, alphaRot;\r\n\r\n            void main()\r\n            {\r\n                modelpos = fuVertex;\r\n                float s = sin(alpha);\r\n                float c = cos(alpha);\r\n\r\n                float s2 = sin(yRotation);\r\n                float c2 = cos(yRotation);\r\n\r\n                \r\n                alphaRot = mat4(cos(alpha), 0, sin(alpha), 0,\r\n                            0, 1, 0, 0,\r\n                            -sin(alpha), 0, cos(alpha), 0,\r\n                            0, 0, 0, 1);\r\n\r\n                yRot = mat4(1, 0, 0, 0,\r\n                            0, cos(yRotation), -sin(yRotation), 0,\r\n                            0, sin(yRotation), cos(yRotation), 0,\r\n                            0, 0, 0, 1);\r\n                gl_Position = alphaRot * yRot * vec4(fuVertex, 1);\r\n        }", "\r\n            #ifdef GL_ES\r\n                precision highp float;\r\n            #endif\r\n            uniform vec2 mousepos;\r\n            varying vec3 modelpos;\r\n            \r\n            void main()\r\n            {\r\n                float distance = distance(vec4(mousepos, 0, 1), vec4(modelpos*0.5+0.5, 1));\r\n                gl_FragColor = vec4(modelpos*0.5 + 0.5, 1) * distance;\r\n        }");
     (this.RenderCanvas$RC$value).SetShader(shader);
     this._alphaParam = (this.RenderCanvas$RC$value).GetShaderParam(shader, "alpha");
-    this._colorParam = (this.RenderCanvas$RC$value).GetShaderParam(shader, "color");
-    this._color = $S01().Construct(0, 0, 0, 0);
     this._alpha = 0;
-    (this.RenderCanvas$RC$value.ClearColor = $S01().Construct(0.1, 0.3, 0.2, 1));
+    this._yRotationParam = (this.RenderCanvas$RC$value).GetShaderParam(shader, "yRotation");
+    this._yRotation = 0;
+    this._mouseposParam = (this.RenderCanvas$RC$value).GetShaderParam(shader, "mousepos");
+    this._mousepos = $S01().Construct(0, 0);
+    (this.RenderCanvas$RC$value.ClearColor = $S02().Construct(0.1, 0.3, 0.2, 1));
+  }; 
+
+  function Tutorial_NextFloat (random) {
+    var buffer = JSIL.Array.New($T0A(), 4);
+    random.NextBytes(buffer);
+    return $T0B().ToSingle(buffer, 0);
   }; 
 
   function Tutorial_RenderAFrame () {
-    this._alpha = +this._alpha + 0.01;
-    this._color = $S01().Construct(1, 1, 1, 1);
+    var leftButton = $T0E().get_Mouse().get_LeftButton();
+    if (leftButton) {
+      var speed = $T0E().get_Mouse().get_Velocity();
+      this._alpha = +this._alpha + (+speed.x * 0.0001);
+      this._yRotation = +this._yRotation + (+speed.y * 0.0001);
+    }
+    var flag = (+$T0E().get_Keyboard().get_LeftRightAxis() > 0) || 
+    (+$T0E().get_Keyboard().get_LeftRightAxis() < 0);
+    if (flag) {
+      var speed2 = +$T0E().get_Keyboard().get_LeftRightAxis();
+      this._alpha = +this._alpha + (speed2 * 0.1);
+    }
+    var flag2 = (+$T0E().get_Keyboard().get_UpDownAxis() > 0) || 
+    (+$T0E().get_Keyboard().get_UpDownAxis() < 0);
+    if (flag2) {
+      var speed3 = +$T0E().get_Keyboard().get_UpDownAxis();
+      this._yRotation = +this._yRotation + (speed3 * 0.1);
+    }
+    this._mousepos = $S01().Construct(+((+$T0E().get_Mouse().get_Position().x / +(this.get_Width()))), +((+$T0E().get_Mouse().get_Position().y / +(this.get_Height()))));
+    (this.RenderCanvas$RC$value).SetShaderParam2f(this._mouseposParam, this._mousepos.MemberwiseClone());
     (this.RenderCanvas$RC$value).SetShaderParam1f(this._alphaParam, this._alpha);
-    (this.RenderCanvas$RC$value).SetShaderParam4f(this._colorParam, this._color.MemberwiseClone());
-    (this.RenderCanvas$RC$value).Clear($T07().$Flags("Color", "Depth"));
+    (this.RenderCanvas$RC$value).SetShaderParam1f(this._yRotationParam, this._yRotation);
+    (this.RenderCanvas$RC$value).Clear($T11().$Flags("Color", "Depth"));
     (this.RenderCanvas$RC$value).Render(this._mesh);
     this.Present();
   }; 
@@ -89,7 +145,7 @@ JSIL.DeclareNamespace("Fusee.Tutorial.Core");
       this.get_Height()
     );
     var aspectRatio = +((+(this.get_Width()) / +(this.get_Height())));
-    var projection = $T09().CreatePerspectiveFieldOfView(0.7853982, aspectRatio, 1, 20000);
+    var projection = $T12().CreatePerspectiveFieldOfView(0.7853982, aspectRatio, 1, 20000);
     (this.RenderCanvas$RC$value.Projection = projection.MemberwiseClone());
   }; 
 
@@ -112,6 +168,11 @@ JSIL.DeclareNamespace("Fusee.Tutorial.Core");
       Tutorial_Init
     );
 
+    $.Method({Static:true , Public:false}, "NextFloat", 
+      new JSIL.MethodSignature($.Single, [$asm0D.TypeRef("System.Random")]), 
+      Tutorial_NextFloat
+    );
+
     $.Method({Static:false, Public:true , Virtual:true }, "RenderAFrame", 
       JSIL.MethodSignature.Void, 
       Tutorial_RenderAFrame
@@ -126,15 +187,19 @@ JSIL.DeclareNamespace("Fusee.Tutorial.Core");
 
     $.Field({Static:false, Public:false}, "_alphaParam", $asm03.TypeRef("Fusee.Engine.Common.IShaderParam"));
 
-    $.Field({Static:false, Public:false}, "_colorParam", $asm03.TypeRef("Fusee.Engine.Common.IShaderParam"));
+    $.Field({Static:false, Public:false}, "_yRotationParam", $asm03.TypeRef("Fusee.Engine.Common.IShaderParam"));
+
+    $.Field({Static:false, Public:false}, "_mouseposParam", $asm03.TypeRef("Fusee.Engine.Common.IShaderParam"));
 
     $.Field({Static:false, Public:false}, "_alpha", $.Single);
 
-    $.Field({Static:false, Public:false}, "_color", $asm06.TypeRef("Fusee.Math.Core.float4"));
+    $.Field({Static:false, Public:false}, "_yRotation", $.Single);
 
-    $.Constant({Static:true , Public:false}, "_vertexShader", $.String, "\r\n        attribute vec3 fuVertex;\r\n        uniform float alpha;\r\n\r\n        void main()\r\n        {\r\n            float s = sin(alpha);\r\n            float c = cos(alpha);\r\n            gl_Position = vec4( fuVertex.x * c - fuVertex.y * s,   // The transformed x coordinate\r\n                                fuVertex.x * s + fuVertex.y * c,   // The transformed y coordinate\r\n                                fuVertex.z * s + fuVertex.z * c,   // z is unchanged\r\n                                1.0);\r\n        }");
+    $.Field({Static:false, Public:false}, "_mousepos", $asm06.TypeRef("Fusee.Math.Core.float2"));
 
-    $.Constant({Static:true , Public:false}, "_pixelShader", $.String, "\r\n            #ifdef GL_ES\r\n                precision highp float;\r\n            #endif\r\n            uniform float4 color;\r\n\r\n            void main()\r\n            {\r\n                gl_FragColor = vec4(color.x, color.y, color.z, color.w);\r\n            }");
+    $.Constant({Static:true , Public:false}, "_vertexShader", $.String, "\r\n            attribute vec3 fuVertex;\r\n            uniform float alpha, yRotation;\r\n            varying vec3 modelpos;\r\n            varying mat4 yRot, alphaRot;\r\n\r\n            void main()\r\n            {\r\n                modelpos = fuVertex;\r\n                float s = sin(alpha);\r\n                float c = cos(alpha);\r\n\r\n                float s2 = sin(yRotation);\r\n                float c2 = cos(yRotation);\r\n\r\n                \r\n                alphaRot = mat4(cos(alpha), 0, sin(alpha), 0,\r\n                            0, 1, 0, 0,\r\n                            -sin(alpha), 0, cos(alpha), 0,\r\n                            0, 0, 0, 1);\r\n\r\n                yRot = mat4(1, 0, 0, 0,\r\n                            0, cos(yRotation), -sin(yRotation), 0,\r\n                            0, sin(yRotation), cos(yRotation), 0,\r\n                            0, 0, 0, 1);\r\n                gl_Position = alphaRot * yRot * vec4(fuVertex, 1);\r\n        }");
+
+    $.Constant({Static:true , Public:false}, "_pixelShader", $.String, "\r\n            #ifdef GL_ES\r\n                precision highp float;\r\n            #endif\r\n            uniform vec2 mousepos;\r\n            varying vec3 modelpos;\r\n            \r\n            void main()\r\n            {\r\n                float distance = distance(vec4(mousepos, 0, 1), vec4(modelpos*0.5+0.5, 1));\r\n                gl_FragColor = vec4(modelpos*0.5 + 0.5, 1) * distance;\r\n        }");
 
 
     return function (newThisType) { $thisType = newThisType; }; 
