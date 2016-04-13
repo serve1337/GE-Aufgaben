@@ -1,0 +1,5 @@
+D:\Dokumente\Projekte\Fusee\Fusee.Tutorial\Tutorial03\bin\Debug\Libraries\Assets\AboutFuseeAssets.txt
+D:\Dokumente\Projekte\Fusee\Fusee.Tutorial\Tutorial03\bin\Debug\Libraries\Fusee.Tutorial.Core.dll
+D:\Dokumente\Projekte\Fusee\Fusee.Tutorial\Tutorial03\bin\Debug\Libraries\Fusee.Tutorial.Core.pdb
+D:\Dokumente\Projekte\Fusee\Fusee.Tutorial\Tutorial03\tmp\Obj\Fusee.Tutorial.Core\Debug\Fusee.Tutorial.Core.dll
+D:\Dokumente\Projekte\Fusee\Fusee.Tutorial\Tutorial03\tmp\Obj\Fusee.Tutorial.Core\Debug\Fusee.Tutorial.Core.pdb
