@@ -176,6 +176,15 @@ namespace Fusee.Tutorial.Core
             {
                 _alpha -= speed.x * 0.0001f;
                 _beta -= speed.y * 0.0001f;
+                if (_beta > 3.14f/2)
+                {
+                    _beta = 3.14f/2;
+                }
+
+                if (_beta < -3.14f/2)
+                {
+                    _beta = -3.14f/2;
+                }
             }
 
             // Setup matrices
@@ -183,15 +192,45 @@ namespace Fusee.Tutorial.Core
             var projection = float4x4.CreatePerspectiveFieldOfView(3.141592f * 0.25f, aspectRatio, 0.01f, 20);
             var view = float4x4.CreateTranslation(0, 0, 3) * float4x4.CreateRotationY(_alpha) * float4x4.CreateRotationX(_beta);
 
+            // Base Cube
+            var baseModel = ModelXForm(pos: new float3(x: 0, y: -1, z: 0), rot: new float3(x: 0, y: 0, z: 0), pivot: new float3(x: 0, y: -1, z: 0));
+            _xform = projection * view * baseModel * float4x4.CreateScale(x: 0.5f, y: 0.05f, z: 0.5f);
+            RC.SetShaderParam(_xformParam, _xform);
+            RC.Render(_mesh);
+            var base2Model = ModelXForm(pos: new float3(x: 0, y: 0.5f, z: 0), rot: new float3(x: 0, y: _yawCube1, z: (3.14f /2)), pivot: new float3(x: 0, y: 0, z: 0));
+            _xform = projection * view * baseModel * base2Model * float4x4.CreateScale(x: 0.5f, y: 0.1f, z: 0.1f);
+            RC.SetShaderParam(_xformParam, _xform);
+            RC.Render(_mesh);
+
             // First cube
-            var cube1Model = ModelXForm(new float3(-0.5f, 0, 0), new float3(_pitchCube1, _yawCube1, 0), new float3(0, 0, 0));
-            _xform = projection * view * cube1Model * float4x4.CreateScale(0.5f, 0.1f, 0.1f);
+            if (_pitchCube2 > 3.14f - (3.14f / 2))
+            {
+                _pitchCube2 = 3.14f - (3.14f / 2);
+            }
+
+            if (_pitchCube2 < -3.14f + (3.14f / 2))
+            {
+                _pitchCube2 = -3.14f + (3.14f / 2);
+            }
+
+            if (_pitchCube1 > 3.14f - (3.14f / 6))
+            {
+                _pitchCube1 = 3.14f - (3.14f / 6);
+            }
+
+            if (_pitchCube1 < -3.14f + (3.14f / 6))
+            {
+                _pitchCube1 = -3.14f + (3.14f / 6);
+            }
+
+            var cube1Model = ModelXForm(pos: new float3(x: -0.1f, y: 0.2f, z: 0), rot: new float3(x: 0, y: _pitchCube1, z: 0), pivot: new float3(x: -0.42f, y: 0, z: 0));
+            _xform = projection * view * base2Model * cube1Model * float4x4.CreateScale(x: 0.5f, y: 0.1f, z: 0.1f);
             RC.SetShaderParam(_xformParam, _xform);
             RC.Render(_mesh);
 
             // Second cube
-            var cube2Model = ModelXForm(pos: new float3(1, 0, 0), rot: new float3(_pitchCube2, _yawCube2, 0), pivot: new float3(-0.5f, 0, 0));
-            _xform = projection * view * cube1Model * cube2Model * float4x4.CreateScale(0.5f, 0.1f, 0.1f);
+            var cube2Model = ModelXForm(pos: new float3(0.8f, -0.2f, 0), rot: new float3(0, _pitchCube2, 0), pivot: new float3(-0.42f, 0, 0));
+            _xform = projection * view * base2Model * cube1Model * cube2Model * float4x4.CreateScale(x: 0.5f, y: 0.1f, z: 0.1f);
             RC.SetShaderParam(_xformParam, _xform);
             RC.Render(_mesh);
 
