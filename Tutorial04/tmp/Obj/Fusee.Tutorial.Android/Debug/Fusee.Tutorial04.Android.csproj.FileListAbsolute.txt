@@ -1,0 +1,10 @@
+D:\Dokumente\Projekte\Fusee\GE-Aufgaben\Tutorial04\bin\Debug\Android\Assets\Cube.fus
+D:\Dokumente\Projekte\Fusee\GE-Aufgaben\Tutorial04\bin\Debug\Android\Assets\Cone.fus
+D:\Dokumente\Projekte\Fusee\GE-Aufgaben\Tutorial04\bin\Debug\Android\Assets\Cylinder.fus
+D:\Dokumente\Projekte\Fusee\GE-Aufgaben\Tutorial04\bin\Debug\Android\Assets\Pyramid.fus
+D:\Dokumente\Projekte\Fusee\GE-Aufgaben\Tutorial04\bin\Debug\Android\Assets\Sphere.fus
+D:\Dokumente\Projekte\Fusee\GE-Aufgaben\Tutorial04\bin\Debug\Android\Fusee.Tutorial.Android.dll
+D:\Dokumente\Projekte\Fusee\GE-Aufgaben\Tutorial04\bin\Debug\Android\Fusee.Tutorial.Android.pdb
+D:\Dokumente\Projekte\Fusee\GE-Aufgaben\Tutorial04\tmp\Obj\Fusee.Tutorial.Android\Debug\Fusee.Tutorial04.Android.csprojResolveAssemblyReference.cache
+D:\Dokumente\Projekte\Fusee\GE-Aufgaben\Tutorial04\tmp\Obj\Fusee.Tutorial.Android\Debug\Fusee.Tutorial.Android.dll
+D:\Dokumente\Projekte\Fusee\GE-Aufgaben\Tutorial04\tmp\Obj\Fusee.Tutorial.Android\Debug\Fusee.Tutorial.Android.pdb

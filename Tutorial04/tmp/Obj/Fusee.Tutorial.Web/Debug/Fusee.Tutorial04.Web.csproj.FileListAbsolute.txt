@@ -1,0 +1,12 @@
+D:\Dokumente\Projekte\Fusee\GE-Aufgaben\Tutorial04\tmp\Obj\Fusee.Tutorial.Web\bin\Debug\Assets\Cube.fus
+D:\Dokumente\Projekte\Fusee\GE-Aufgaben\Tutorial04\tmp\Obj\Fusee.Tutorial.Web\bin\Debug\Assets\Cone.fus
+D:\Dokumente\Projekte\Fusee\GE-Aufgaben\Tutorial04\tmp\Obj\Fusee.Tutorial.Web\bin\Debug\Assets\Cylinder.fus
+D:\Dokumente\Projekte\Fusee\GE-Aufgaben\Tutorial04\tmp\Obj\Fusee.Tutorial.Web\bin\Debug\Assets\Pyramid.fus
+D:\Dokumente\Projekte\Fusee\GE-Aufgaben\Tutorial04\tmp\Obj\Fusee.Tutorial.Web\bin\Debug\Assets\Sphere.fus
+D:\Dokumente\Projekte\Fusee\GE-Aufgaben\Tutorial04\tmp\Obj\Fusee.Tutorial.Web\bin\Debug\Assets\Styles\browser.css
+D:\Dokumente\Projekte\Fusee\GE-Aufgaben\Tutorial04\tmp\Obj\Fusee.Tutorial.Web\bin\Debug\Assets\Styles\loading_rocket.png
+D:\Dokumente\Projekte\Fusee\GE-Aufgaben\Tutorial04\tmp\Obj\Fusee.Tutorial.Web\bin\Debug\Fusee.Tutorial.Web.exe
+D:\Dokumente\Projekte\Fusee\GE-Aufgaben\Tutorial04\tmp\Obj\Fusee.Tutorial.Web\bin\Debug\Fusee.Tutorial.Web.pdb
+D:\Dokumente\Projekte\Fusee\GE-Aufgaben\Tutorial04\tmp\Obj\Fusee.Tutorial.Web\Debug\Fusee.Tutorial04.Web.csprojResolveAssemblyReference.cache
+D:\Dokumente\Projekte\Fusee\GE-Aufgaben\Tutorial04\tmp\Obj\Fusee.Tutorial.Web\Debug\Fusee.Tutorial.Web.exe
+D:\Dokumente\Projekte\Fusee\GE-Aufgaben\Tutorial04\tmp\Obj\Fusee.Tutorial.Web\Debug\Fusee.Tutorial.Web.pdb

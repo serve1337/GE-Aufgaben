@@ -16,5 +16,7 @@ namespace Fusee.Tutorial.Core
         public float3 Pivot = float3.Zero;
         public float3 Scale = float3.One;
         public float3 ModelScale = float3.One;
+        internal List<SceneOb> Children;
+        internal string Name = "";
     }
 }
