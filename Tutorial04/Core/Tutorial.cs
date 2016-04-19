@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.ServiceModel.Channels;
 using Fusee.Base.Common;
 using Fusee.Base.Core;
@@ -90,27 +91,54 @@ namespace Fusee.Tutorial.Core
                 // Legs Parent
                 new SceneOb
                 {
-                    Name = "legs",
+                    Name = "legLeft",
+                    Pivot = new float3(0, 1, 0),
+                    Pos = new float3(-0.25f, 1, 0),
                     Children = new List<SceneOb>(new[]
                     {
-                        // Legs
                         new SceneOb
                         {
                             Mesh = cylinder,
-                            Name = "legLeft",
-                            Pivot = new float3(0, 1, 0),
-                            Pos = new float3(-0.25f, 1, 0),
+                            Name = "leg1",
+                            Pivot = new float3(0, 0, 0),
+                            Pos = new float3(0, 0, 0),
                             ModelScale = new float3(0.15f, 1, 0.15f),
                             Albedo = new float3((13/100), (31/100), (166/100)),
                         },
                         new SceneOb
                         {
                             Mesh = cylinder,
-                            Name = "legRight",
-                            Pivot = new float3(0, 1, 0),
-                            Pos = new float3( 0.25f, 1, 0),
+                            Name = "footLeft",
+                            Pivot = new float3(0, 0, 0),
+                            Pos = new float3(0, -1, -0.1f),
+                            ModelScale = new float3(0.2f, 0.1f, 0.3f),
+                            Albedo = new float3((13/100), (31/100), (166/100)),
+                        },
+                    })},
+                new SceneOb
+                {
+                    Name = "legRight",
+                    Pivot = new float3(0, 1, 0),
+                    Pos = new float3(0.25f, 1, 0),
+                    Children = new List<SceneOb>(new[]
+                    {
+                        new SceneOb
+                        {
+                            Mesh = cylinder,
+                            Name = "leg2",
+                            Pivot = new float3(0, 0, 0),
+                            Pos = new float3( 0, 0, 0),
                             ModelScale = new float3(0.15f, 1, 0.15f),
                             Albedo = new float3((13/100), (31/100), (166/100))
+                        },
+                        new SceneOb
+                        {
+                            Mesh = cylinder,
+                            Name = "footRight",
+                            Pivot = new float3(0, 1, 0),
+                            Pos = new float3(0, -1, -0.1f),
+                            ModelScale = new float3(0.2f, 0.1f, 0.3f),
+                            Albedo = new float3((13/100), (31/100), (166/100)),
                         },
                     })
                 },
@@ -220,6 +248,24 @@ namespace Fusee.Tutorial.Core
                             Pos = new float3(0.15f, 0.05f, -0.33f),
                             ModelScale = new float3(0.05f, 0.05f, 0.05f),
                             Albedo = new float3(0, 0, 1)
+                        },
+
+                        // Eyebrowns
+                        new SceneOb
+                        {
+                            Mesh = sphere,
+                            Name = "eyebrown1",
+                            Pos = new float3(-0.15f, 0.12f, -0.33f),
+                            ModelScale = new float3(0.07f, 0.02f, 0.02f),
+                            Albedo = new float3((232/100), (107/100), (12/100)),
+                        },
+                        new SceneOb
+                        {
+                            Mesh = sphere,
+                            Name = "eyebrown2",
+                            Pos = new float3(0.15f, 0.12f, -0.33f),
+                            ModelScale = new float3(0.07f, 0.02f, 0.02f),
+                            Albedo = new float3((232/100), (107/100), (12/100))
                         }
                     })
                 }
