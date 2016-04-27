@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Fusee.Base.Core;
 using Fusee.Engine.Common;
@@ -177,12 +178,6 @@ namespace Fusee.Tutorial.Core
             }
 
             // Setup matrices
-            var aspectRatio = Width / (float)Height;
-            RC.Projection = float4x4.CreatePerspectiveFieldOfView(fovy: 3.141592f * 0.3f, aspect: aspectRatio, zNear: 0.1f, zFar: 20);
-
-            float4x4 view = float4x4.CreateTranslation(0, 0, _zoom) * float4x4.CreateRotationY(3.14f) * float4x4.CreateRotationX(0.65f) *
-                    float4x4.CreateTranslation(0, -0.5f, 0);
-
             _movZ += _speed * _objectSpeed;
             _movY -= _speedRot * _objectSpeed * 0.3f;
 
@@ -190,10 +185,14 @@ namespace Fusee.Tutorial.Core
             _wuggy0.Rotation = new float3(0, _movY, 0);
             _wuggy0.Translation = new float3(0, 0, _movZ);
 
+            var aspectRatio = Width / (float)Height;
+            RC.Projection = float4x4.CreatePerspectiveFieldOfView(fovy: 3.141592f * 0.3f, aspect: aspectRatio, zNear: 0.1f, zFar: 20);
+
+            float4x4 view = float4x4.CreateTranslation(0, 0, _zoom) * float4x4.CreateRotationY(3.14f) * float4x4.CreateRotationX(0.65f) *
+                    float4x4.CreateTranslation(0, -0.5f, 0 - _wuggy0.Translation.z);
+            
             _renderer.View = view;
             _renderer.Traverse(_wuggy.Children);
-
-            _renderer.View = view;
             _renderer.Traverse(_cube.Children);
 
             // Swap buffers: Show the contents of the backbuffer (containing the currently rendered frame) on the front buffer.

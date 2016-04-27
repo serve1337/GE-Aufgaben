@@ -10,6 +10,7 @@ uniform float specfactor;
 void main()
 {
 	vec3 nnormal = normalize(normal);
+	// vec3 nnormal = normal; // Removing normalize
 	
 	// Diffuse
 	vec3 lightdir = vec3(0, 0, -1);
@@ -23,6 +24,6 @@ void main()
 		vec3 h = normalize(viewdir+lightdir);
 		intensitySpec = pow(max(0.0, dot(h, nnormal)), shininess);
 	}
-
+	// gl_FragColor = vec4(albedo + vec3(intensitySpec), 1)); // Display specular component only
     gl_FragColor = vec4(intensityDiff * albedo + vec3(intensitySpec), 1);
 }
