@@ -15,8 +15,7 @@ namespace Fusee.Tutorial.Core
     class Renderer : SceneVisitor
     {
         public RenderContext RC;
-        public IShaderParam AlbedoParam;
-        public IShaderParam ShininessParam;
+        public IShaderParam AlbedoParam, ShininessParam, SpecularParam, ManualParam;
         public float4x4 View;
         private Dictionary<MeshComponent, Mesh> _meshes = new Dictionary<MeshComponent, Mesh>();
         private CollapsingStateStack<float4x4> _model = new CollapsingStateStack<float4x4>();
@@ -46,6 +45,8 @@ namespace Fusee.Tutorial.Core
             RC.SetShader(shader);
             AlbedoParam = RC.GetShaderParam(shader, "albedo");
             ShininessParam = RC.GetShaderParam(shader, "shininess");
+            SpecularParam = RC.GetShaderParam(shader, "specfactor");
+            ManualParam = RC.GetShaderParam(shader, "manualfactor");
         }
 
         protected override void InitState()
@@ -72,6 +73,7 @@ namespace Fusee.Tutorial.Core
         {
             RC.SetShaderParam(AlbedoParam, material.Diffuse.Color);
             RC.SetShaderParam(ShininessParam, material.Specular.Shininess);
+            RC.SetShaderParam(SpecularParam, material.Specular.Intensity);
         }
         [VisitMethod]
         void OnTransform(TransformComponent xform)
@@ -89,14 +91,12 @@ namespace Fusee.Tutorial.Core
         private TransformComponent _wheelBigL, _wheelBigR, _wheelSmallR, _wheelSmallL, _cubeCube, _wuggy0;
 
         private IShaderParam _albedoParam;
-        private float _alpha = 0.001f;
-        private float _beta;
+        private float _alpha = 0.001f, _beta, _specfactor = 2;
 
         private SceneOb _root;
         private SceneContainer _wuggy, _cube;
         private Renderer _renderer;
-
-        private float _smallWheelSpeed, _bigWheelSpeed, _objectSpeed, _movZ, _movY, _zoom = 5;
+        private float _smallWheelSpeed, _bigWheelSpeed, _objectSpeed, _zoom = 5;
 
         // Init is called on startup. 
         public override void Init()
@@ -134,7 +134,7 @@ namespace Fusee.Tutorial.Core
             }
 
             float _speed = -0.05f * Keyboard.WSAxis;
-            float _speedRot = -0.05f * Keyboard.ADAxis;
+            float _speedRot = -0.01f * Keyboard.ADAxis;
 
             _wheelBigL.Rotation += new float3(_bigWheelSpeed * _speed, 0, 0);
             _wheelBigR.Rotation += new float3(_bigWheelSpeed * _speed, 0, 0);
@@ -163,34 +163,44 @@ namespace Fusee.Tutorial.Core
             {
                 if (_wheelSmallL.Rotation.y > 0)
                 {
-                    _wheelSmallL.Rotation.y -= 0.03f;
-                    _wheelSmallR.Rotation.y -= 0.03f;
+                    _wheelSmallL.Rotation.y -= 0.05f;
+                    _wheelSmallR.Rotation.y -= 0.05f;
                 }
 
                 if (_wheelSmallL.Rotation.y < 0)
                 {
                     
-                    _wheelSmallL.Rotation.y += 0.03f;
-                    _wheelSmallR.Rotation.y += 0.03f;
+                    _wheelSmallL.Rotation.y += 0.05f;
+                    _wheelSmallR.Rotation.y += 0.05f;
                 }
                 _wheelSmallL.Rotation += new float3(_smallWheelSpeed * _speed, 0, 0);
                 _wheelSmallR.Rotation += new float3(_smallWheelSpeed * _speed, 0, 0);
             }
 
             // Setup matrices
-            _movZ += _speed * _objectSpeed;
-            _movY -= _speedRot * _objectSpeed * 0.3f;
-
             _cubeCube.Scale = new float3(10, 0.1f, 10);
-            _wuggy0.Rotation = new float3(0, _movY, 0);
-            _wuggy0.Translation = new float3(0, 0, _movZ);
+
+            var rotX = 0.05f * (float)System.Math.Sin(_wuggy0.Rotation.y);
+            var rotZ = 0.05f * (float)System.Math.Cos(_wuggy0.Rotation.y);
+
+            _wuggy0.Translation += new float3(- rotX * Keyboard.WSAxis, 0, - rotZ * Keyboard.WSAxis);
+            _wuggy0.Rotation += new float3(0, 0.03f * Keyboard.ADAxis, 0);
 
             var aspectRatio = Width / (float)Height;
             RC.Projection = float4x4.CreatePerspectiveFieldOfView(fovy: 3.141592f * 0.3f, aspect: aspectRatio, zNear: 0.1f, zFar: 20);
 
             float4x4 view = float4x4.CreateTranslation(0, 0, _zoom) * float4x4.CreateRotationY(3.14f) * float4x4.CreateRotationX(0.65f) *
-                    float4x4.CreateTranslation(0, -0.5f, 0 - _wuggy0.Translation.z);
-            
+                    float4x4.CreateTranslation(0, -0.5f, 0);
+
+            if (Keyboard.LeftRightAxis > 0 && _specfactor < 7f)
+            {
+                _specfactor += 0.08f;
+            } else if (Keyboard.LeftRightAxis < 0 && _specfactor > 0f)
+            {
+                _specfactor -= 0.08f;
+            }
+
+            _renderer.RC.SetShaderParam(_renderer.ManualParam, _specfactor);
             _renderer.View = view;
             _renderer.Traverse(_wuggy.Children);
             _renderer.Traverse(_cube.Children);
