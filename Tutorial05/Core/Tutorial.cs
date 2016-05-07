@@ -88,7 +88,7 @@ namespace Fusee.Tutorial.Core
     public class Tutorial : RenderCanvas
     {
         private Mesh _mesh;
-        private TransformComponent _wheelBigL, _wheelBigR, _wheelSmallR, _wheelSmallL, _cubeCube, _wuggy0;
+        private TransformComponent _wheelBigL, _wheelBigR, _wheelSmallR, _wheelSmallL, _cubeCube, _wuggy0, _wuggyEyes, _wuggyNeck;
 
         private IShaderParam _albedoParam;
         private float _alpha = 0.001f, _beta, _specfactor = 2;
@@ -110,6 +110,8 @@ namespace Fusee.Tutorial.Core
             _wheelBigR = _wuggy.Children.FindNodes(n => n.Name == "WheelBigR").First().GetTransform();
             _wheelSmallL = _wuggy.Children.FindNodes(n => n.Name == "WheelSmallL").First().GetTransform();
             _wheelSmallR = _wuggy.Children.FindNodes(n => n.Name == "WheelSmallR").First().GetTransform();
+            _wuggyEyes = _wuggy.Children.FindNodes(n => n.Name == "Eyes_Pitch").First().GetTransform();
+            _wuggyNeck = _wuggy.Children.FindNodes(n => n.Name == "NeckLo").First().GetTransform();
             _renderer = new Renderer(RC);
 
             _smallWheelSpeed = (_wheelSmallL.Scale.xyz.Length/100)*50;
@@ -199,6 +201,22 @@ namespace Fusee.Tutorial.Core
             {
                 _specfactor -= 0.08f;
             }
+
+            if (Keyboard.GetKey(KeyCodes.Q))
+            {
+                if (_wuggyNeck.Translation.y <= 220 ) {
+                    _wuggyNeck.Translation.y += 0.6f;
+                }
+            }
+            if (Keyboard.GetKey(KeyCodes.E))
+            {
+                if (_wuggyNeck.Translation.y >= 130)
+                {
+                    _wuggyNeck.Translation.y -= 0.6f;
+                }
+            }
+
+            _wuggyEyes.Rotation.y = _wuggy0.Rotation.y * -1 + (float)System.Math.Atan2(_wuggy0.Translation.x, _wuggy0.Translation.z * 8f);
 
             _renderer.RC.SetShaderParam(_renderer.ManualParam, _specfactor);
             _renderer.View = view;
