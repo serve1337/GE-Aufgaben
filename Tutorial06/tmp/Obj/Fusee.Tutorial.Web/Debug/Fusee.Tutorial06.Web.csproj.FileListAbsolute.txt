@@ -1,0 +1,14 @@
+D:\Dokumente\Projekte\Fusee\GE-Aufgaben\Tutorial06\tmp\Obj\Fusee.Tutorial.Web\bin\Debug\Assets\Leaves.jpg
+D:\Dokumente\Projekte\Fusee\GE-Aufgaben\Tutorial06\tmp\Obj\Fusee.Tutorial.Web\bin\Debug\Assets\litsphere.jpg
+D:\Dokumente\Projekte\Fusee\GE-Aufgaben\Tutorial06\tmp\Obj\Fusee.Tutorial.Web\bin\Debug\Assets\WuggyLand.fus
+D:\Dokumente\Projekte\Fusee\GE-Aufgaben\Tutorial06\tmp\Obj\Fusee.Tutorial.Web\bin\Debug\Assets\PixelShader.frag
+D:\Dokumente\Projekte\Fusee\GE-Aufgaben\Tutorial06\tmp\Obj\Fusee.Tutorial.Web\bin\Debug\Assets\VertexShader.vert
+D:\Dokumente\Projekte\Fusee\GE-Aufgaben\Tutorial06\tmp\Obj\Fusee.Tutorial.Web\bin\Debug\Assets\Styles\browser.css
+D:\Dokumente\Projekte\Fusee\GE-Aufgaben\Tutorial06\tmp\Obj\Fusee.Tutorial.Web\bin\Debug\Assets\Styles\loading_rocket.png
+D:\Dokumente\Projekte\Fusee\GE-Aufgaben\Tutorial06\tmp\Obj\Fusee.Tutorial.Web\bin\Debug\Fusee.Tutorial.Web.exe
+D:\Dokumente\Projekte\Fusee\GE-Aufgaben\Tutorial06\tmp\Obj\Fusee.Tutorial.Web\bin\Debug\Fusee.Tutorial.Web.pdb
+D:\Dokumente\Projekte\Fusee\GE-Aufgaben\Tutorial06\tmp\Obj\Fusee.Tutorial.Web\Debug\Fusee.Tutorial06.Web.csprojResolveAssemblyReference.cache
+D:\Dokumente\Projekte\Fusee\GE-Aufgaben\Tutorial06\tmp\Obj\Fusee.Tutorial.Web\Debug\Fusee.Tutorial.Web.exe
+D:\Dokumente\Projekte\Fusee\GE-Aufgaben\Tutorial06\tmp\Obj\Fusee.Tutorial.Web\Debug\Fusee.Tutorial.Web.pdb
+D:\Dokumente\Projekte\Fusee\GE-Aufgaben\Tutorial06\tmp\Obj\Fusee.Tutorial.Web\bin\Debug\Assets\VertexShaderGlobal.vert
+D:\Dokumente\Projekte\Fusee\GE-Aufgaben\Tutorial06\tmp\Obj\Fusee.Tutorial.Web\bin\Debug\Assets\PixelShaderGlobal.frag
