@@ -16,79 +16,79 @@ JSIL.DeclareNamespace("Fusee.Tutorial.Core");
     return ($T01 = JSIL.Memoize($asm0D.System.Collections.Generic.Dictionary$b2.Of($asm07.Fusee.Serialization.MeshComponent, $asm04.Fusee.Engine.Core.Mesh))) ();
   };
   var $T02 = function () {
-    return ($T02 = JSIL.Memoize($asm0B.Fusee.Xene.CollapsingStateStack$b1.Of($asm06.Fusee.Math.Core.float4x4))) ();
+    return ($T02 = JSIL.Memoize($asm0D.System.Collections.Generic.Dictionary$b2.Of($asm0D.System.String, $asm03.Fusee.Engine.Common.ITexture))) ();
   };
   var $T03 = function () {
-    return ($T03 = JSIL.Memoize($asm0D.System.Collections.Generic.Dictionary$b2.Of($asm0D.System.String, $asm03.Fusee.Engine.Common.ITexture))) ();
+    return ($T03 = JSIL.Memoize($asm0D.System.Collections.Generic.Dictionary$b2.Of($asm0D.System.String, $asm0D.System.String))) ();
   };
   var $T04 = function () {
     return ($T04 = JSIL.Memoize($asm0D.System.Collections.Generic.Dictionary$b2.Of($asm0D.System.String, $asm04.Fusee.Engine.Core.ShaderEffect))) ();
   };
   var $T05 = function () {
-    return ($T05 = JSIL.Memoize($asm0B.Fusee.Xene.SceneVisitor)) ();
+    return ($T05 = JSIL.Memoize($asm0B.Fusee.Xene.CollapsingStateStack$b1.Of($asm06.Fusee.Math.Core.float4x4))) ();
   };
   var $T06 = function () {
-    return ($T06 = JSIL.Memoize($asm0D.System.String)) ();
+    return ($T06 = JSIL.Memoize($asm0B.Fusee.Xene.SceneVisitor)) ();
   };
   var $T07 = function () {
-    return ($T07 = JSIL.Memoize($asm01.Fusee.Base.Core.AssetStorage)) ();
+    return ($T07 = JSIL.Memoize(System.Array.Of($asm04.Fusee.Engine.Core.EffectPassDeclaration))) ();
   };
   var $T08 = function () {
-    return ($T08 = JSIL.Memoize($asm00.Fusee.Base.Common.ImageData)) ();
+    return ($T08 = JSIL.Memoize($asm04.Fusee.Engine.Core.EffectPassDeclaration)) ();
   };
   var $T09 = function () {
-    return ($T09 = JSIL.Memoize(System.Array.Of($asm04.Fusee.Engine.Core.EffectPassDeclaration))) ();
+    return ($T09 = JSIL.Memoize($asm04.Fusee.Engine.Core.RenderStateSet)) ();
   };
   var $T0A = function () {
-    return ($T0A = JSIL.Memoize($asm04.Fusee.Engine.Core.EffectPassDeclaration)) ();
+    return ($T0A = JSIL.Memoize($asm03.Fusee.Engine.Common.Cull)) ();
   };
   var $T0B = function () {
-    return ($T0B = JSIL.Memoize($asm04.Fusee.Engine.Core.RenderStateSet)) ();
+    return ($T0B = JSIL.Memoize(System.Array.Of($asm04.Fusee.Engine.Core.EffectParameterDeclaration))) ();
   };
   var $T0C = function () {
-    return ($T0C = JSIL.Memoize($asm03.Fusee.Engine.Common.Cull)) ();
+    return ($T0C = JSIL.Memoize($asm04.Fusee.Engine.Core.EffectParameterDeclaration)) ();
   };
   var $T0D = function () {
-    return ($T0D = JSIL.Memoize(System.Array.Of($asm04.Fusee.Engine.Core.EffectParameterDeclaration))) ();
+    return ($T0D = JSIL.Memoize($asm06.Fusee.Math.Core.float3)) ();
   };
   var $T0E = function () {
-    return ($T0E = JSIL.Memoize($asm04.Fusee.Engine.Core.EffectParameterDeclaration)) ();
+    return ($T0E = JSIL.Memoize($asm0D.System.Single)) ();
   };
   var $T0F = function () {
-    return ($T0F = JSIL.Memoize($asm06.Fusee.Math.Core.float3)) ();
+    return ($T0F = JSIL.Memoize($asm04.Fusee.Engine.Core.ShaderEffect)) ();
   };
   var $T10 = function () {
-    return ($T10 = JSIL.Memoize($asm0D.System.Single)) ();
+    return ($T10 = JSIL.Memoize($asm0D.System.Collections.Generic.IEnumerable$b1.Of($asm04.Fusee.Engine.Core.EffectParameterDeclaration))) ();
   };
   var $T11 = function () {
-    return ($T11 = JSIL.Memoize($asm04.Fusee.Engine.Core.ShaderEffect)) ();
+    return ($T11 = JSIL.Memoize($asm0D.System.Collections.Generic.Dictionary$b2_Enumerator.Of($asm0D.System.String, $asm04.Fusee.Engine.Core.ShaderEffect))) ();
   };
   var $T12 = function () {
-    return ($T12 = JSIL.Memoize($asm0D.System.Collections.Generic.IEnumerable$b1.Of($asm04.Fusee.Engine.Core.EffectParameterDeclaration))) ();
+    return ($T12 = JSIL.Memoize($asm0D.System.Collections.Generic.KeyValuePair$b2.Of($asm0D.System.String, $asm04.Fusee.Engine.Core.ShaderEffect))) ();
   };
   var $T13 = function () {
-    return ($T13 = JSIL.Memoize($asm0D.System.Collections.Generic.Dictionary$b2_Enumerator.Of($asm0D.System.String, $asm04.Fusee.Engine.Core.ShaderEffect))) ();
+    return ($T13 = JSIL.Memoize($asm06.Fusee.Math.Core.float4x4)) ();
   };
   var $T14 = function () {
-    return ($T14 = JSIL.Memoize($asm0D.System.Collections.Generic.KeyValuePair$b2.Of($asm0D.System.String, $asm04.Fusee.Engine.Core.ShaderEffect))) ();
+    return ($T14 = JSIL.Memoize($asm0D.System.String)) ();
   };
   var $T15 = function () {
-    return ($T15 = JSIL.Memoize($asm06.Fusee.Math.Core.float4x4)) ();
+    return ($T15 = JSIL.Memoize($asm0D.System.Boolean)) ();
   };
   var $T16 = function () {
-    return ($T16 = JSIL.Memoize($asm07.Fusee.Serialization.MeshComponent)) ();
+    return ($T16 = JSIL.Memoize($asm01.Fusee.Base.Core.AssetStorage)) ();
   };
   var $T17 = function () {
-    return ($T17 = JSIL.Memoize($asm04.Fusee.Engine.Core.Mesh)) ();
+    return ($T17 = JSIL.Memoize($asm00.Fusee.Base.Common.ImageData)) ();
   };
   var $T18 = function () {
-    return ($T18 = JSIL.Memoize($asm0D.System.Boolean)) ();
+    return ($T18 = JSIL.Memoize($asm07.Fusee.Serialization.MeshComponent)) ();
   };
   var $T19 = function () {
-    return ($T19 = JSIL.Memoize($asm07.Fusee.Serialization.MaterialComponent)) ();
+    return ($T19 = JSIL.Memoize($asm04.Fusee.Engine.Core.Mesh)) ();
   };
   var $T1A = function () {
-    return ($T1A = JSIL.Memoize($asm03.Fusee.Engine.Common.ITexture)) ();
+    return ($T1A = JSIL.Memoize($asm07.Fusee.Serialization.MaterialComponent)) ();
   };
   var $T1B = function () {
     return ($T1B = JSIL.Memoize($asm0D.System.Int32)) ();
@@ -106,131 +106,150 @@ JSIL.DeclareNamespace("Fusee.Tutorial.Core");
     return ($S01 = JSIL.Memoize(new JSIL.ConstructorSignature($asm0D.TypeRef("System.Collections.Generic.Dictionary`2", [$asm0D.TypeRef("System.String"), $asm03.TypeRef("Fusee.Engine.Common.ITexture")]), null))) ();
   };
   var $S02 = function () {
-    return ($S02 = JSIL.Memoize(new JSIL.ConstructorSignature($asm0D.TypeRef("System.Collections.Generic.Dictionary`2", [$asm0D.TypeRef("System.String"), $asm04.TypeRef("Fusee.Engine.Core.ShaderEffect")]), null))) ();
+    return ($S02 = JSIL.Memoize(new JSIL.ConstructorSignature($asm0D.TypeRef("System.Collections.Generic.Dictionary`2", [$asm0D.TypeRef("System.String"), $asm0D.TypeRef("System.String")]), null))) ();
   };
   var $S03 = function () {
-    return ($S03 = JSIL.Memoize(new JSIL.MethodSignature($asm06.TypeRef("Fusee.Math.Core.float4x4"), [$asm06.TypeRef("Fusee.Math.Core.float4x4"), $asm06.TypeRef("Fusee.Math.Core.float4x4")]))) ();
+    return ($S03 = JSIL.Memoize(new JSIL.ConstructorSignature($asm0D.TypeRef("System.Collections.Generic.Dictionary`2", [$asm0D.TypeRef("System.String"), $asm04.TypeRef("Fusee.Engine.Core.ShaderEffect")]), null))) ();
+  };
+  var $S04 = function () {
+    return ($S04 = JSIL.Memoize(new JSIL.MethodSignature($asm06.TypeRef("Fusee.Math.Core.float4x4"), [$asm06.TypeRef("Fusee.Math.Core.float4x4"), $asm06.TypeRef("Fusee.Math.Core.float4x4")]))) ();
   };
 
 
   function Renderer__ctor (rc) {
     this._meshes = $S00().Construct();
-    this._model = new ($T02())(4);
     this._textures = $S01().Construct();
-    this._shaderEffects = $S02().Construct();
-    $T05().prototype._ctor.call(this);
+    this._assets = $S02().Construct();
+    this._shaderEffects = $S03().Construct();
+    this._model = new ($T05())(4);
+    $T06().prototype._ctor.call(this);
     this.RC = rc;
-    var vS = $T07().Get$b1($T06())("VertexShader.vert");
-    var pS = $T07().Get$b1($T06())("PixelShader.frag");
-    (this._textures).Add("Tree.5", (this.RC).CreateTexture($T07().Get$b1($T08())("Leaves.jpg").MemberwiseClone(), false));
-    this._globalTexture = (this._textures).get_Item("Tree.5");
-    var expr_A0 = JSIL.Array.New($T0A(), 1);
-    var effectPassDeclaration = new ($T0A())();
-    effectPassDeclaration.VS = vS;
-    effectPassDeclaration.PS = pS;
-    var expr_C1 = new ($T0B())();
-    expr_C1.set_CullMode($T0C().Counterclockwise);
-    expr_C1.set_ZEnable(true);
-    effectPassDeclaration.StateSet = expr_C1;
-    expr_A0[0] = effectPassDeclaration.MemberwiseClone();
-    var expr_E2 = JSIL.Array.New($T0E(), 7);
-    var effectParameterDeclaration = new ($T0E())();
+    this.loadTexture("Leaves.jpg");
+    this.loadTexture("litsphere.jpg");
+    var arg_25C_0 = this._shaderEffects;
+    var expr_70 = JSIL.Array.New($T08(), 2);
+    var effectPassDeclaration = new ($T08())();
+    effectPassDeclaration.VS = this.loadAsset("VertexShader.vert");
+    effectPassDeclaration.PS = this.loadAsset("PixelShader.frag");
+    var expr_A5 = new ($T09())();
+    expr_A5.set_ZEnable(true);
+    expr_A5.set_CullMode($T0A().Counterclockwise);
+    effectPassDeclaration.StateSet = expr_A5;
+    expr_70[0] = effectPassDeclaration.MemberwiseClone();
+    effectPassDeclaration = new ($T08())();
+    effectPassDeclaration.VS = this.loadAsset("VertexShaderGlobal.vert");
+    effectPassDeclaration.PS = this.loadAsset("PixelShaderGlobal.frag");
+    var expr_F5 = new ($T09())();
+    expr_F5.set_ZEnable(true);
+    expr_F5.set_CullMode($T0A().Counterclockwise);
+    effectPassDeclaration.StateSet = expr_F5;
+    expr_70[1] = effectPassDeclaration.MemberwiseClone();
+    var expr_116 = JSIL.Array.New($T0C(), 7);
+    var effectParameterDeclaration = new ($T0C())();
     effectParameterDeclaration.Name = "albedo";
-    effectParameterDeclaration.Value = $T0F().One.MemberwiseClone();
-    expr_E2[0] = effectParameterDeclaration.MemberwiseClone();
-    effectParameterDeclaration = new ($T0E())();
+    effectParameterDeclaration.Value = $T0D().One.MemberwiseClone();
+    expr_116[0] = effectParameterDeclaration.MemberwiseClone();
+    effectParameterDeclaration = new ($T0C())();
     effectParameterDeclaration.Name = "shininess";
-    effectParameterDeclaration.Value = $T10().$Box(1);
-    expr_E2[1] = effectParameterDeclaration.MemberwiseClone();
-    effectParameterDeclaration = new ($T0E())();
+    effectParameterDeclaration.Value = $T0E().$Box(1);
+    expr_116[1] = effectParameterDeclaration.MemberwiseClone();
+    effectParameterDeclaration = new ($T0C())();
     effectParameterDeclaration.Name = "specfactor";
-    effectParameterDeclaration.Value = $T10().$Box(1);
-    expr_E2[2] = effectParameterDeclaration.MemberwiseClone();
-    effectParameterDeclaration = new ($T0E())();
+    effectParameterDeclaration.Value = $T0E().$Box(1);
+    expr_116[2] = effectParameterDeclaration.MemberwiseClone();
+    effectParameterDeclaration = new ($T0C())();
     effectParameterDeclaration.Name = "speccolor";
-    effectParameterDeclaration.Value = $T0F().Zero.MemberwiseClone();
-    expr_E2[3] = effectParameterDeclaration.MemberwiseClone();
-    effectParameterDeclaration = new ($T0E())();
+    effectParameterDeclaration.Value = $T0D().Zero.MemberwiseClone();
+    expr_116[3] = effectParameterDeclaration.MemberwiseClone();
+    effectParameterDeclaration = new ($T0C())();
     effectParameterDeclaration.Name = "ambientcolor";
-    effectParameterDeclaration.Value = $T0F().Zero.MemberwiseClone();
-    expr_E2[4] = effectParameterDeclaration.MemberwiseClone();
-    effectParameterDeclaration = new ($T0E())();
+    effectParameterDeclaration.Value = $T0D().Zero.MemberwiseClone();
+    expr_116[4] = effectParameterDeclaration.MemberwiseClone();
+    effectParameterDeclaration = new ($T0C())();
     effectParameterDeclaration.Name = "texture";
-    effectParameterDeclaration.Value = this._globalTexture;
-    expr_E2[5] = effectParameterDeclaration.MemberwiseClone();
-    effectParameterDeclaration = new ($T0E())();
+    effectParameterDeclaration.Value = (this._textures).get_Item("Leaves.jpg");
+    expr_116[5] = effectParameterDeclaration.MemberwiseClone();
+    effectParameterDeclaration = new ($T0C())();
     effectParameterDeclaration.Name = "texmix";
-    effectParameterDeclaration.Value = $T10().$Box(0);
-    expr_E2[6] = effectParameterDeclaration.MemberwiseClone();
-    (this._shaderEffects).Add("Tree.5", new ($T11())(expr_A0, $T12().$Cast(expr_E2)));
-    this._globalShader = (this._shaderEffects).get_Item("Tree.5");
-    (this._textures).Add("Kugel.1", (this.RC).CreateTexture($T07().Get$b1($T08())("litsphere.jpg").MemberwiseClone(), false));
-    var expr_272 = JSIL.Array.New($T0A(), 2);
-    effectPassDeclaration = new ($T0A())();
-    effectPassDeclaration.VS = $T07().Get$b1($T06())("VertexShaderGlobal.vert");
-    effectPassDeclaration.PS = $T07().Get$b1($T06())("PixelShaderGlobal.frag");
-    var expr_2A5 = new ($T0B())();
-    expr_2A5.set_CullMode($T0C().Clockwise);
-    expr_2A5.set_ZEnable(false);
-    effectPassDeclaration.StateSet = expr_2A5;
-    expr_272[0] = effectPassDeclaration.MemberwiseClone();
-    effectPassDeclaration = new ($T0A())();
-    effectPassDeclaration.VS = vS;
-    effectPassDeclaration.PS = pS;
-    var expr_2E1 = new ($T0B())();
-    expr_2E1.set_CullMode($T0C().Counterclockwise);
-    expr_2E1.set_ZEnable(true);
-    effectPassDeclaration.StateSet = expr_2E1;
-    expr_272[1] = effectPassDeclaration.MemberwiseClone();
-    var expr_302 = JSIL.Array.New($T0E(), 7);
-    effectParameterDeclaration = new ($T0E())();
+    effectParameterDeclaration.Value = $T0E().$Box(0);
+    expr_116[6] = effectParameterDeclaration.MemberwiseClone();
+    arg_25C_0.Add("Shader1", new ($T0F())(expr_70, $T10().$Cast(expr_116)));
+    var arg_40F_0 = this._shaderEffects;
+    var expr_273 = JSIL.Array.New($T08(), 1);
+    effectPassDeclaration = new ($T08())();
+    effectPassDeclaration.VS = this.loadAsset("VertexShader.vert");
+    effectPassDeclaration.PS = this.loadAsset("PixelShader.frag");
+    var expr_2A8 = new ($T09())();
+    expr_2A8.set_ZEnable(false);
+    expr_2A8.set_CullMode($T0A().Counterclockwise);
+    effectPassDeclaration.StateSet = expr_2A8;
+    expr_273[0] = effectPassDeclaration.MemberwiseClone();
+    var expr_2C9 = JSIL.Array.New($T0C(), 7);
+    effectParameterDeclaration = new ($T0C())();
     effectParameterDeclaration.Name = "albedo";
-    effectParameterDeclaration.Value = $T0F().One.MemberwiseClone();
-    expr_302[0] = effectParameterDeclaration.MemberwiseClone();
-    effectParameterDeclaration = new ($T0E())();
+    effectParameterDeclaration.Value = $T0D().One.MemberwiseClone();
+    expr_2C9[0] = effectParameterDeclaration.MemberwiseClone();
+    effectParameterDeclaration = new ($T0C())();
     effectParameterDeclaration.Name = "shininess";
-    effectParameterDeclaration.Value = $T10().$Box(1);
-    expr_302[1] = effectParameterDeclaration.MemberwiseClone();
-    effectParameterDeclaration = new ($T0E())();
+    effectParameterDeclaration.Value = $T0E().$Box(1);
+    expr_2C9[1] = effectParameterDeclaration.MemberwiseClone();
+    effectParameterDeclaration = new ($T0C())();
     effectParameterDeclaration.Name = "specfactor";
-    effectParameterDeclaration.Value = $T10().$Box(1);
-    expr_302[2] = effectParameterDeclaration.MemberwiseClone();
-    effectParameterDeclaration = new ($T0E())();
+    effectParameterDeclaration.Value = $T0E().$Box(1);
+    expr_2C9[2] = effectParameterDeclaration.MemberwiseClone();
+    effectParameterDeclaration = new ($T0C())();
     effectParameterDeclaration.Name = "speccolor";
-    effectParameterDeclaration.Value = $T0F().Zero.MemberwiseClone();
-    expr_302[3] = effectParameterDeclaration.MemberwiseClone();
-    effectParameterDeclaration = new ($T0E())();
+    effectParameterDeclaration.Value = $T0D().Zero.MemberwiseClone();
+    expr_2C9[3] = effectParameterDeclaration.MemberwiseClone();
+    effectParameterDeclaration = new ($T0C())();
     effectParameterDeclaration.Name = "ambientcolor";
-    effectParameterDeclaration.Value = $T0F().Zero.MemberwiseClone();
-    expr_302[4] = effectParameterDeclaration.MemberwiseClone();
-    effectParameterDeclaration = new ($T0E())();
+    effectParameterDeclaration.Value = $T0D().Zero.MemberwiseClone();
+    expr_2C9[4] = effectParameterDeclaration.MemberwiseClone();
+    effectParameterDeclaration = new ($T0C())();
     effectParameterDeclaration.Name = "texture";
-    effectParameterDeclaration.Value = this._globalTexture;
-    expr_302[5] = effectParameterDeclaration.MemberwiseClone();
-    effectParameterDeclaration = new ($T0E())();
+    effectParameterDeclaration.Value = (this._textures).get_Item("litsphere.jpg");
+    expr_2C9[5] = effectParameterDeclaration.MemberwiseClone();
+    effectParameterDeclaration = new ($T0C())();
     effectParameterDeclaration.Name = "texmix";
-    effectParameterDeclaration.Value = $T10().$Box(0);
-    expr_302[6] = effectParameterDeclaration.MemberwiseClone();
-    (this._shaderEffects).Add("Kugel.1", new ($T11())(expr_272, $T12().$Cast(expr_302)));
+    effectParameterDeclaration.Value = $T0E().$Box(0);
+    expr_2C9[6] = effectParameterDeclaration.MemberwiseClone();
+    arg_40F_0.Add("Shader2", new ($T0F())(expr_273, $T10().$Cast(expr_2C9)));
     var enumerator = $T04().prototype.GetEnumerator.call(this._shaderEffects);
 
-    while ($T13().prototype.MoveNext.call(enumerator)) {
-      var current = $T13().prototype.get_Current.call(enumerator).MemberwiseClone();
+    while ($T11().prototype.MoveNext.call(enumerator)) {
+      var current = $T11().prototype.get_Current.call(enumerator).MemberwiseClone();
       (current.get_Value()).AttachToContext(this.RC);
     }
-    (this._globalShader).AttachToContext(this.RC);
   }; 
 
   function Renderer_InitState () {
     (this._model).Clear();
-    (this._model).set_Tos($T15().Identity.MemberwiseClone());
+    (this._model).set_Tos($T13().Identity.MemberwiseClone());
+  }; 
+
+  function Renderer_loadAsset (name) {
+    var flag = !(this._assets).ContainsKey(name);
+    if (flag) {
+      (this._assets).Add(name, $T16().Get$b1($T14())(name));
+      var result = (this._assets).get_Item(name);
+    } else {
+      result = (this._assets).get_Item(name);
+    }
+    return result;
+  }; 
+
+  function Renderer_loadTexture (name) {
+    var flag = !(this._textures).ContainsKey(name);
+    if (flag) {
+      (this._textures).Add(name, (this.RC).CreateTexture($T16().Get$b1($T17())(name).MemberwiseClone(), false));
+    }
   }; 
 
   function Renderer_LookupMesh (mc) {
     var mesh = new JSIL.BoxedVariable(null);
     var flag = !(this._meshes).TryGetValue(mc, /* ref */ mesh);
     if (flag) {
-      var expr_1C = new ($T17())();
+      var expr_1C = new ($T19())();
       expr_1C.set_Vertices(mc.Vertices);
       expr_1C.set_Normals(mc.Normals);
       expr_1C.set_UVs(mc.UVs);
@@ -242,68 +261,54 @@ JSIL.DeclareNamespace("Fusee.Tutorial.Core");
   }; 
 
   function Renderer_OnMaterial (material) {
-    var globalShader = new JSIL.BoxedVariable(null);
-    var globalTexture = new JSIL.BoxedVariable(null);
-    var name = this.SceneVisitor$CurrentNode$value.Name;
-    var flag = !(this._shaderEffects).TryGetValue("objName", /* ref */ globalShader);
-    if (flag) {
-      globalShader.set(this._globalShader);
-    }
-    var flag2 = !(this._textures).TryGetValue("objName", /* ref */ globalTexture);
-    if (flag2) {
-      globalTexture.set(this._globalTexture);
-    }
     var hasDiffuse = material.get_HasDiffuse();
     if (hasDiffuse) {
-      (globalShader.get()).SetEffectParam("albedo", material.Diffuse.Color.MemberwiseClone());
-      var flag3 = material.Diffuse.Texture !== null;
-      if (flag3) {
+      ((this._shaderEffects).get_Item("Shader1")).SetEffectParam("albedo", material.Diffuse.Color.MemberwiseClone());
+      var flag = material.Diffuse.Texture !== null;
+      if (flag) {
         var texture = material.Diffuse.Texture;
-        var flag4 = !(this._textures).TryGetValue(texture, /* ref */ globalTexture);
-        if (flag4) {
-          var imgData = $T07().Get$b1($T08())(material.Diffuse.Texture).MemberwiseClone();
-          var value = (this.RC).CreateTexture(imgData.MemberwiseClone(), false);
-          (this._textures).Add(texture, value);
+        var flag2 = !(this._textures).TryGetValue(texture, /* ref */ new JSIL.MemberReference(this, "_texture"));
+        if (flag2) {
+          (this._textures).Add(texture, (this.RC).CreateTexture($T16().Get$b1($T17())(material.Diffuse.Texture).MemberwiseClone(), false));
         }
-        (this._textures).TryGetValue(texture, /* ref */ new JSIL.MemberReference(this, "_globalTexture"));
-        (globalShader.get()).SetEffectParam("texture", this._globalTexture);
-        (globalShader.get()).SetEffectParam("texmix", material.Diffuse.Mix);
+        ((this._shaderEffects).get_Item("Shader1")).SetEffectParam("texture", this._texture);
+        ((this._shaderEffects).get_Item("Shader1")).SetEffectParam("texmix", material.Diffuse.Mix);
       } else {
-        (globalShader.get()).SetEffectParam("texmix", $T10().$Box(0));
+        ((this._shaderEffects).get_Item("Shader1")).SetEffectParam("texmix", $T0E().$Box(0));
       }
     } else {
-      (globalShader.get()).SetEffectParam("albedo", $T0F().Zero.MemberwiseClone());
+      ((this._shaderEffects).get_Item("Shader1")).SetEffectParam("albedo", $T0D().Zero.MemberwiseClone());
     }
     var hasSpecular = material.get_HasSpecular();
     if (hasSpecular) {
-      (globalShader.get()).SetEffectParam("shininess", material.Specular.Shininess);
-      (globalShader.get()).SetEffectParam("specfactor", material.Specular.Intensity);
-      (globalShader.get()).SetEffectParam("speccolor", material.Specular.Color.MemberwiseClone());
+      ((this._shaderEffects).get_Item("Shader1")).SetEffectParam("shininess", material.Specular.Shininess);
+      ((this._shaderEffects).get_Item("Shader1")).SetEffectParam("specfactor", material.Specular.Intensity);
+      ((this._shaderEffects).get_Item("Shader1")).SetEffectParam("speccolor", material.Specular.Color.MemberwiseClone());
     } else {
-      (globalShader.get()).SetEffectParam("shininess", $T1B().$Box(0));
-      (globalShader.get()).SetEffectParam("specfactor", $T1B().$Box(0));
-      (globalShader.get()).SetEffectParam("speccolor", $T0F().Zero.MemberwiseClone());
+      ((this._shaderEffects).get_Item("Shader1")).SetEffectParam("shininess", $T1B().$Box(0));
+      ((this._shaderEffects).get_Item("Shader1")).SetEffectParam("specfactor", $T1B().$Box(0));
+      ((this._shaderEffects).get_Item("Shader1")).SetEffectParam("speccolor", $T0D().Zero.MemberwiseClone());
     }
     var hasEmissive = material.get_HasEmissive();
     if (hasEmissive) {
-      (globalShader.get()).SetEffectParam("ambientcolor", material.Emissive.Color.MemberwiseClone());
+      ((this._shaderEffects).get_Item("Shader1")).SetEffectParam("ambientcolor", material.Emissive.Color.MemberwiseClone());
     } else {
-      (globalShader.get()).SetEffectParam("ambientcolor", $T0F().Zero.MemberwiseClone());
+      ((this._shaderEffects).get_Item("Shader1")).SetEffectParam("ambientcolor", $T0D().Zero.MemberwiseClone());
     }
   }; 
 
   function Renderer_OnMesh (mesh) {
-    (this.RC).Render(this.LookupMesh(mesh));
+    ((this._shaderEffects).get_Item("Shader1")).RenderMesh(this.LookupMesh(mesh));
   }; 
 
   function Renderer_OnTransform (xform) {
-    this._model.Tos = $S03().CallStatic($T15(), "op_Multiply", null, this._model.Tos.MemberwiseClone(), $T1D().Matrix(xform).MemberwiseClone()).MemberwiseClone();
-    (this.RC.ModelView = $S03().CallStatic($T15(), "op_Multiply", null, this.View.MemberwiseClone(), (this._model).get_Tos().MemberwiseClone()).MemberwiseClone());
+    this._model.Tos = $S04().CallStatic($T13(), "op_Multiply", null, this._model.Tos.MemberwiseClone(), $T1D().Matrix(xform).MemberwiseClone()).MemberwiseClone();
+    (this.RC.ModelView = $S04().CallStatic($T13(), "op_Multiply", null, this.View.MemberwiseClone(), (this._model).get_Tos().MemberwiseClone()).MemberwiseClone());
   }; 
 
   function Renderer_PopState () {
     (this._model).Pop();
-    (this.RC.ModelView = $S03().CallStatic($T15(), "op_Multiply", null, this.View.MemberwiseClone(), (this._model).get_Tos().MemberwiseClone()).MemberwiseClone());
+    (this.RC.ModelView = $S04().CallStatic($T13(), "op_Multiply", null, this.View.MemberwiseClone(), (this._model).get_Tos().MemberwiseClone()).MemberwiseClone());
   }; 
 
   function Renderer_PushState () {
@@ -327,6 +332,16 @@ JSIL.DeclareNamespace("Fusee.Tutorial.Core");
     $.Method({Static:false, Public:false, Virtual:true }, "InitState", 
       JSIL.MethodSignature.Void, 
       Renderer_InitState
+    );
+
+    $.Method({Static:false, Public:false}, "loadAsset", 
+      new JSIL.MethodSignature($.String, [$.String]), 
+      Renderer_loadAsset
+    );
+
+    $.Method({Static:false, Public:false}, "loadTexture", 
+      JSIL.MethodSignature.Action($.String), 
+      Renderer_loadTexture
     );
 
     $.Method({Static:false, Public:false}, "LookupMesh", 
@@ -364,33 +379,19 @@ JSIL.DeclareNamespace("Fusee.Tutorial.Core");
 
     $.Field({Static:false, Public:true }, "RC", $asm04.TypeRef("Fusee.Engine.Core.RenderContext"));
 
-    $.Field({Static:false, Public:true }, "AlbedoParam", $asm03.TypeRef("Fusee.Engine.Common.IShaderParam"));
-
-    $.Field({Static:false, Public:true }, "ShininessParam", $asm03.TypeRef("Fusee.Engine.Common.IShaderParam"));
-
-    $.Field({Static:false, Public:true }, "SpecFactorParam", $asm03.TypeRef("Fusee.Engine.Common.IShaderParam"));
-
-    $.Field({Static:false, Public:true }, "SpecColorParam", $asm03.TypeRef("Fusee.Engine.Common.IShaderParam"));
-
-    $.Field({Static:false, Public:true }, "AmbientColorParam", $asm03.TypeRef("Fusee.Engine.Common.IShaderParam"));
-
     $.Field({Static:false, Public:true }, "View", $asm06.TypeRef("Fusee.Math.Core.float4x4"));
+
+    $.Field({Static:false, Public:false}, "_texture", $asm03.TypeRef("Fusee.Engine.Common.ITexture"));
 
     $.Field({Static:false, Public:false}, "_meshes", $asm0D.TypeRef("System.Collections.Generic.Dictionary`2", [$asm07.TypeRef("Fusee.Serialization.MeshComponent"), $asm04.TypeRef("Fusee.Engine.Core.Mesh")]));
 
+    $.Field({Static:false, Public:false}, "_textures", $asm0D.TypeRef("System.Collections.Generic.Dictionary`2", [$.String, $asm03.TypeRef("Fusee.Engine.Common.ITexture")]));
+
+    $.Field({Static:false, Public:false}, "_assets", $asm0D.TypeRef("System.Collections.Generic.Dictionary`2", [$.String, $.String]));
+
+    $.Field({Static:false, Public:true }, "_shaderEffects", $asm0D.TypeRef("System.Collections.Generic.Dictionary`2", [$.String, $asm04.TypeRef("Fusee.Engine.Core.ShaderEffect")]));
+
     $.Field({Static:false, Public:false}, "_model", $asm0B.TypeRef("Fusee.Xene.CollapsingStateStack`1", [$asm06.TypeRef("Fusee.Math.Core.float4x4")]));
-
-    $.Field({Static:false, Public:false}, "TextureParam", $asm03.TypeRef("Fusee.Engine.Common.IShaderParam"));
-
-    $.Field({Static:false, Public:false}, "TexMixParam", $asm03.TypeRef("Fusee.Engine.Common.IShaderParam"));
-
-    $.Field({Static:false, Public:false, ReadOnly:true }, "_textures", $asm0D.TypeRef("System.Collections.Generic.Dictionary`2", [$.String, $asm03.TypeRef("Fusee.Engine.Common.ITexture")]));
-
-    $.Field({Static:false, Public:false, ReadOnly:true }, "_shaderEffects", $asm0D.TypeRef("System.Collections.Generic.Dictionary`2", [$.String, $asm04.TypeRef("Fusee.Engine.Core.ShaderEffect")]));
-
-    $.Field({Static:false, Public:false}, "_globalTexture", $asm03.TypeRef("Fusee.Engine.Common.ITexture"));
-
-    $.Field({Static:false, Public:false}, "_globalShader", $asm04.TypeRef("Fusee.Engine.Core.ShaderEffect"));
 
 
     return function (newThisType) { $thisType = newThisType; }; 

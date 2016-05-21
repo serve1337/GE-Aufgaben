@@ -8,3 +8,5 @@ D:\Dokumente\Projekte\Fusee\GE-Aufgaben\Tutorial06\bin\Debug\Desktop\Fusee.Tutor
 D:\Dokumente\Projekte\Fusee\GE-Aufgaben\Tutorial06\tmp\Obj\Fusee.Tutorial.Desktop\Debug\Fusee.Tutorial06.Desktop.csprojResolveAssemblyReference.cache
 D:\Dokumente\Projekte\Fusee\GE-Aufgaben\Tutorial06\tmp\Obj\Fusee.Tutorial.Desktop\Debug\Fusee.Tutorial.Desktop.exe
 D:\Dokumente\Projekte\Fusee\GE-Aufgaben\Tutorial06\tmp\Obj\Fusee.Tutorial.Desktop\Debug\Fusee.Tutorial.Desktop.pdb
+D:\Dokumente\Projekte\Fusee\GE-Aufgaben\Tutorial06\bin\Debug\Desktop\Assets\VertexShaderGlobal.vert
+D:\Dokumente\Projekte\Fusee\GE-Aufgaben\Tutorial06\bin\Debug\Desktop\Assets\PixelShaderGlobal.frag

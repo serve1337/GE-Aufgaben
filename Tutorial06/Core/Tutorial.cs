@@ -17,20 +17,13 @@ namespace Fusee.Tutorial.Core
     class Renderer : SceneVisitor
     {
         public RenderContext RC;
-        public IShaderParam AlbedoParam;
-        public IShaderParam ShininessParam;
-        public IShaderParam SpecFactorParam;
-        public IShaderParam SpecColorParam;
-        public IShaderParam AmbientColorParam;
         public float4x4 View;
+        private ITexture _texture;
         private Dictionary<MeshComponent, Mesh> _meshes = new Dictionary<MeshComponent, Mesh>();
+        private Dictionary<string, ITexture> _textures = new Dictionary<string, ITexture>();
+        private Dictionary<string, string> _assets = new Dictionary<string, string>();
+        public Dictionary<string, ShaderEffect> _shaderEffects = new Dictionary<string, ShaderEffect>();
         private CollapsingStateStack<float4x4> _model = new CollapsingStateStack<float4x4>();
-        private IShaderParam TextureParam;
-        private IShaderParam TexMixParam;
-        private readonly Dictionary<string, ITexture> _textures = new Dictionary<string, ITexture>();
-        private readonly Dictionary<string, ShaderEffect> _shaderEffects = new Dictionary<string, ShaderEffect>();
-        private ITexture _globalTexture;
-        private ShaderEffect _globalShader;
 
         private Mesh LookupMesh(MeshComponent mc)
         {
@@ -42,81 +35,104 @@ namespace Fusee.Tutorial.Core
                     Vertices = mc.Vertices,
                     Normals = mc.Normals,
                     UVs = mc.UVs,
-                    Triangles = mc.Triangles
+                    Triangles = mc.Triangles,
                 };
                 _meshes[mc] = mesh;
             }
             return mesh;
         }
 
+        private void loadTexture(string name)
+        {
+            if (!_textures.ContainsKey(name))
+                _textures.Add(name, RC.CreateTexture(AssetStorage.Get<ImageData>(name)));
+        }
+
+        private string loadAsset(string name)
+        {
+            if (!_assets.ContainsKey(name))
+            {
+                _assets.Add(name, AssetStorage.Get<string>(name));
+                return _assets[name];
+            }
+
+            return _assets[name];
+        }
+
         public Renderer(RenderContext rc)
         {
             RC = rc;
 
-            string vertexShader = AssetStorage.Get<string>("VertexShader.vert");
-            string pixelShader = AssetStorage.Get<string>("PixelShader.frag");
+            loadTexture("Leaves.jpg");
+            loadTexture("litsphere.jpg");
 
-            _textures.Add("Tree.5", RC.CreateTexture(AssetStorage.Get<ImageData>("Leaves.jpg")));
-            _globalTexture = _textures["Tree.5"];
-            _shaderEffects.Add("Tree.5", new ShaderEffect(
-                new[] {
-                    new EffectPassDeclaration {
-                        VS = vertexShader,
-                        PS = pixelShader,
-                        StateSet = new RenderStateSet {
+            _shaderEffects.Add("Shader1", new ShaderEffect(
+                 new[]
+                 {
+                     new EffectPassDeclaration
+                     {
+                         VS = loadAsset("VertexShader.vert"),
+                         PS = loadAsset("PixelShader.frag"),
+                         StateSet = new RenderStateSet
+                         {
+                             ZEnable = true,
+                             CullMode = Cull.Counterclockwise,
+                         }
+                     },
+                     new EffectPassDeclaration
+                     {
+                        VS = loadAsset("VertexShaderGlobal.vert"),
+                        PS = loadAsset("PixelShaderGlobal.frag"),
+                        StateSet = new RenderStateSet
+                        {
+                            ZEnable = true,
                             CullMode = Cull.Counterclockwise,
-                            ZEnable = true
                         }
                     }
+                 },
+                 new[]
+                 {
+                     new EffectParameterDeclaration {Name = "albedo", Value = float3.One},
+                     new EffectParameterDeclaration {Name = "shininess", Value = 1.0f},
+                     new EffectParameterDeclaration {Name = "specfactor", Value= 1.0f},
+                     new EffectParameterDeclaration {Name = "speccolor", Value = float3.Zero},
+                     new EffectParameterDeclaration {Name = "ambientcolor", Value = float3.Zero},
+                     new EffectParameterDeclaration {Name = "texture", Value = _textures["Leaves.jpg"]},
+                     new EffectParameterDeclaration {Name = "texmix", Value = 0.0f},
+                 }));
+
+
+            _shaderEffects.Add("Shader2", new ShaderEffect(
+            new[]
+                {
+                    //First Effect Pass Standard Shading
+                    new EffectPassDeclaration
+                    {
+                        VS = loadAsset("VertexShader.vert"),
+                        PS = loadAsset("PixelShader.frag"),
+                        StateSet = new RenderStateSet
+                        {
+                            ZEnable = false,
+                            CullMode = Cull.Counterclockwise,
+                        }
+                    },
+
                 },
-                new[] {
+                new[]
+                {
                     new EffectParameterDeclaration {Name = "albedo", Value = float3.One},
                     new EffectParameterDeclaration {Name = "shininess", Value = 1.0f},
-                    new EffectParameterDeclaration {Name = "specfactor", Value = 1.0f},
+                    new EffectParameterDeclaration {Name = "specfactor", Value= 1.0f},
                     new EffectParameterDeclaration {Name = "speccolor", Value = float3.Zero},
                     new EffectParameterDeclaration {Name = "ambientcolor", Value = float3.Zero},
-                    new EffectParameterDeclaration {Name = "texture", Value = _globalTexture},
-                    new EffectParameterDeclaration {Name = "texmix", Value = 0.0f}
+                    new EffectParameterDeclaration {Name = "texture", Value = _textures["litsphere.jpg"]},
+                    new EffectParameterDeclaration {Name = "texmix", Value = 0.0f},
                 }));
-            _globalShader = _shaderEffects["Tree.5"];
 
-
-            _textures.Add("Kugel.1", RC.CreateTexture(AssetStorage.Get<ImageData>("litsphere.jpg")));
-            _shaderEffects.Add("Kugel.1", new ShaderEffect(
-               new[] {
-                new EffectPassDeclaration {
-                    VS = AssetStorage.Get<string>("VertexShaderGlobal.vert"),
-                    PS = AssetStorage.Get<string>("PixelShaderGlobal.frag"),
-                    StateSet = new RenderStateSet {
-                        CullMode = Cull.Clockwise,
-                        ZEnable = false
-                    }
-                },
-                 new EffectPassDeclaration {
-                    VS = vertexShader,
-                    PS = pixelShader,
-                    StateSet = new RenderStateSet {
-                        CullMode = Cull.Counterclockwise,
-                        ZEnable = true
-                    }
-                }
-               },
-               new[] {
-                    new EffectParameterDeclaration {Name = "albedo", Value = float3.One},
-                    new EffectParameterDeclaration {Name = "shininess", Value = 1.0f},
-                    new EffectParameterDeclaration {Name = "specfactor", Value = 1.0f},
-                    new EffectParameterDeclaration {Name = "speccolor", Value = float3.Zero},
-                    new EffectParameterDeclaration {Name = "ambientcolor", Value = float3.Zero},
-                    new EffectParameterDeclaration {Name = "texture", Value = _globalTexture},
-                    new EffectParameterDeclaration {Name = "texmix", Value = 0.0f}
-               }));
-
-            foreach (KeyValuePair<string, ShaderEffect> shaderEffect in _shaderEffects)
+            foreach(var shaderEffect in _shaderEffects)
             {
                 shaderEffect.Value.AttachToContext(RC);
             }
-
-            _globalShader.AttachToContext(RC);
         }
 
         protected override void InitState()
@@ -131,81 +147,60 @@ namespace Fusee.Tutorial.Core
         protected override void PopState()
         {
             _model.Pop();
-            RC.ModelView = View*_model.Tos;
+            RC.ModelView = View * _model.Tos;
         }
         [VisitMethod]
         void OnMesh(MeshComponent mesh)
         {
-            RC.Render(LookupMesh(mesh));
+            _shaderEffects["Shader1"].RenderMesh(LookupMesh(mesh));
         }
         [VisitMethod]
-        private void OnMaterial(MaterialComponent material)
+        void OnMaterial(MaterialComponent material)
         {
-            string objName = CurrentNode.Name;
-            ShaderEffect shaderEffect;
-            ITexture texture;
-
-            if(!_shaderEffects.TryGetValue("objName", out shaderEffect))
-            {
-                shaderEffect = _globalShader;
-            }
-
-            if (!_textures.TryGetValue("objName", out texture))
-            {
-                texture = _globalTexture;
-            }
-
             if (material.HasDiffuse)
             {
-                shaderEffect.SetEffectParam("albedo", material.Diffuse.Color);
+                _shaderEffects["Shader1"].SetEffectParam("albedo", material.Diffuse.Color);
 
                 if (material.Diffuse.Texture != null)
                 {
-                    var textureKey = material.Diffuse.Texture;
+                    var textureName = material.Diffuse.Texture;
 
-                    if (!_textures.TryGetValue(textureKey, out texture))
-                    {
-                        ImageData imageData = AssetStorage.Get<ImageData>(material.Diffuse.Texture);
-                        ITexture ntexture = RC.CreateTexture(imageData);
-                        _textures.Add(textureKey, ntexture);
-                    }
+                    if(!_textures.TryGetValue(textureName, out _texture))
+                        _textures.Add(textureName, RC.CreateTexture(AssetStorage.Get<ImageData>(material.Diffuse.Texture)));
 
-                    _textures.TryGetValue(textureKey, out _globalTexture);
-
-                    shaderEffect.SetEffectParam("texture", _globalTexture);
-                    shaderEffect.SetEffectParam("texmix", material.Diffuse.Mix);
+                    _shaderEffects["Shader1"].SetEffectParam("texture", _texture);
+                    _shaderEffects["Shader1"].SetEffectParam("texmix", material.Diffuse.Mix);
                 }
                 else
                 {
-                    shaderEffect.SetEffectParam("texmix", 0.0f);
+                    _shaderEffects["Shader1"].SetEffectParam("texmix", 0.0f);
                 }
             }
             else
             {
-                shaderEffect.SetEffectParam("albedo", float3.Zero);
+                _shaderEffects["Shader1"].SetEffectParam("albedo", float3.Zero);
             }
             if (material.HasSpecular)
             {
-                shaderEffect.SetEffectParam("shininess", material.Specular.Shininess);
-                shaderEffect.SetEffectParam("specfactor", material.Specular.Intensity);
-                shaderEffect.SetEffectParam("speccolor", material.Specular.Color);
+                _shaderEffects["Shader1"].SetEffectParam("shininess", material.Specular.Shininess);
+                _shaderEffects["Shader1"].SetEffectParam("specfactor", material.Specular.Intensity);
+                _shaderEffects["Shader1"].SetEffectParam("speccolor", material.Specular.Color);
             }
             else
             {
-                shaderEffect.SetEffectParam("shininess", 0);
-                shaderEffect.SetEffectParam("specfactor", 0);
-                shaderEffect.SetEffectParam("speccolor", float3.Zero);
+                _shaderEffects["Shader1"].SetEffectParam("shininess", 0);
+                _shaderEffects["Shader1"].SetEffectParam("specfactor", 0);
+                _shaderEffects["Shader1"].SetEffectParam("speccolor", float3.Zero);
             }
             if (material.HasEmissive)
             {
-                shaderEffect.SetEffectParam("ambientcolor", material.Emissive.Color);
+                _shaderEffects["Shader1"].SetEffectParam("ambientcolor", material.Emissive.Color);
             }
             else
             {
-                shaderEffect.SetEffectParam("ambientcolor", float3.Zero);
+                _shaderEffects["Shader1"].SetEffectParam("ambientcolor", float3.Zero);
             }
         }
-
         [VisitMethod]
         void OnTransform(TransformComponent xform)
         {
